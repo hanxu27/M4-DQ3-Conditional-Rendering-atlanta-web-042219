@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MenuBar = (props) => {
+const MenuBar = ({ active, changeDisplay }) => {
 
   /*
 
@@ -10,27 +10,29 @@ const MenuBar = (props) => {
   this programatically? What other behavior do we expect when we click
   on a menu item? Do we need state in this component, and if not, how can
   this component be made aware of what is currently the active menu item?
-
+  
   */
+
+  // let classCheck = (id) => document.getElementById(id) === props.active ? 'item active' : 'item'
 
   return (
     <div className="ui four item menu">
-      <a className="item active" id="profile">
-        <i className="user large icon" id="profile"/>
+      <a className={"item " + (active === "profile" && " active")} id="profile" onClick={(e) => changeDisplay(e.target.id)}>
+        <i className="user large icon" id="profile" />
       </a>
 
-      <a className="item" id="photo">
-        <i className="photo large icon" id="photo"/>
+      <a className={"item " + (active === "photo" && " active")} id="photo" onClick={(e) => changeDisplay(e.target.id)}>
+        <i className="photo large icon" id="photo" />
       </a>
 
-      <a className="item" id="cocktail">
-        <i className="cocktail large icon" id="cocktail"/>
+      <a className={"item " + (active === "cocktail" && " active")} id="cocktail" onClick={(e) => changeDisplay(e.target.id)}>
+        <i className="cocktail large icon" id="cocktail" />
       </a>
 
-      <a className="item" id="pokemon"> 
-        <i className=" themeisle large icon" id="pokemon"/>
+      <a className={"item " + (active === "pokemon" && " active")} id="pokemon" onClick={(e) => changeDisplay(e.target.id)}>
+        <i className=" themeisle large icon" id="pokemon" />
       </a>
-    </div>
+    </div >
   )
 
 }
